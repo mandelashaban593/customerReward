@@ -16,6 +16,8 @@
 {% endblock %}
 
 {% block javascript %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
 
 <script src="{% static 'patient/js/jquery-3.2.1.min.js' %}" ></script>
 <script src="{% static 'patient/js/bootstrap.min.js' %}" ></script>
@@ -57,9 +59,10 @@
 
 </a>
 
-<button class="btn btn-dark m-1" onclick="wreload()">
 
-<i class="fa fa-repeat" aria-hidden="true"></i>
+<button class="btn btn-dark m-1" onClick="Refresh()">
+
+<i class="fa fa-redo" aria-hidden="true"></i>
 
 
 </button>
@@ -71,8 +74,8 @@
 
 <button type="button"  
 class="btn btn-dark js-create-book"
-data-url="{% url 'Reward:book_create' %}">
-<i class="fa fa-plus"></i>
+data-url="#">
+<a href="{% url 'Reward:customer_reward' %}"><i class="fa fa-plus"></i></a>
 </button>
 
 </button>
@@ -95,7 +98,9 @@ data-url="{% url 'Reward:book_create' %}">
 <form>
 <div class="input-group">
 
-<input id="q" name="q" class="form-control fa fa-search" placeholder="Search Customers" value="">
+<input type="text" id="myInput" onkeyup="myFunction()"  class="form-control fa fa-search"   placeholder="Search Customers" title="Type in a name">
+
+
 <div class="input-group-append">
 <button class="btn btn-dark" type="submit">
 <i class="fa fa-search"></i>
@@ -114,15 +119,17 @@ data-url="{% url 'Reward:book_create' %}">
 
 </div>
 
-<table class="table table-hover" id="book-table">
-<thead class="bg-ligh">
-<tr class="border-0 d-flex">
-<th class="border-0 w-25">First Name</th>
-<th  class="border-0 w-25">Last Name</th>
-<th  class="border-0 w-25">Phone</th>
-<th class="border-0 w-25">Stars</th>
-<th class="border-0 w-25">Entry Date</th>
-<th class="border-0 w-25">Free Item</th>
+
+<table id="myTable" class="tabe table-responive " style="width:0PX">
+<tr class="header" style="width:1000PX">
+<th  style="">First Name</th>
+<th  style="">Last Name</th>
+
+<th  style="">Phone</th>
+<th style="">Stars</th>
+<th style="">Entry Date</th>
+<th style="">Free Item</th>
+
 </tr>
 </thead>
 {% include 'Reward/includes/partial_customer_list4.html' %}
@@ -274,9 +281,29 @@ data-url="{% url 'Reward:book_create' %}">
 <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script>
-$(document).ready(function(){
-$('#book-table').DataTable();
-});
+function myFunction() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTable");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+td = tr[i].getElementsByTagName("td")[0];
+if (td) {
+txtValue = td.textContent || td.innerText;
+if (txtValue.toUpperCase().indexOf(filter) > -1) {
+tr[i].style.display = "";
+} else {
+tr[i].style.display = "none";
+}
+}       
+}
+}
+
+function Refresh() {
+        window.parent.location = window.parent.location.href;
+    }
+
 </script>
 
 

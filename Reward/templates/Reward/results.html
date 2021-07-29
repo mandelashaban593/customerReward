@@ -1,7 +1,7 @@
 {% if results|length %}
 	
 {% for r in results %}
-<option value="{{ r.fname }} {{ r.lname}}">{{ r.fname }} {{ r.lname}}</option>
+<option value="{{r.id}}">{{ r.fname }} {{ r.lname}}</option>
 {% endfor %}
 
 
