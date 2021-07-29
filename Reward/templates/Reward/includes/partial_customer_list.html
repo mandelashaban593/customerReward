@@ -1,0 +1,31 @@
+<tr class="border-0 d-lex">
+      <th class="border-0 w-25">First Name</th>
+<th  class="border-0 w-25">Last Name</th>
+<th  class="border-0 w-25">Phone</th>
+<th  class="border-0 w-25 float-righ" style="margin-left:0">Edit</th>
+</tr>
+
+
+{% for book in books %}
+
+
+  <tr  class="d-fex" >
+    <td class="w-25">{{ book.fname }}</td>
+    <td class="w-25">{{ book.lname }}</td>
+    <td class="w-25">  {{ book.phone}}</td>
+    
+
+     <td class="w-25" > <button type="button"
+              class="btn btn-dark btn-sm float-right ml-2 js-update-book"
+              data-url="{% url 'Reward:book_update' book.id %}">
+
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+      </button></td>
+
+ 
+  </tr>
+{% empty %}
+  <tr style="width:100PX">
+    <td colspan="8" class="text-center bg-warning">No customer</td>
+  </tr>
+{% endfor %}

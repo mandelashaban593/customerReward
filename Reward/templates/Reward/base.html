@@ -1,0 +1,619 @@
+
+{% load static %}
+
+<!--     for  django bootstrap themes
+-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'vendor/fonts/circular-std/style.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'libs/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/fonts/fontawesome/css/fontawesome-all.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/charts/chartist-bundle/chartist.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/charts/morris-bundle/morris.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/charts/c3charts/c3.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/fonts/flag-icon-css/flag-icon.min.css' %}">
+
+<!-- table records and pagination tab -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.pagination.css' %}">
+
+
+
+<link rel="stylesheet" href="{% static 'css/inline-valid/style_swal_msg.css' %}" />
+
+{% block stylesheet %}
+
+
+{% endblock %}
+
+
+
+<style type="text/css">
+
+
+
+
+</style>
+
+<title>Customer </title>
+</head>
+
+<body>
+<!-- ============================================================== -->
+<!-- main wrapper -->
+<!-- ============================================================== -->
+<div class="dashboard-main-wrapper">
+<!-- ============================================================== -->
+<!-- navbar -->
+<!-- ============================================================== -->
+<div class="dashboard-header">
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
+<a class="navbar-brand" href="index.html"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse " id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto menu">
+
+
+<div class="dropdown bg-light">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+My Account
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+<a class="dropdown-item" href="{% url 'Reward:logout'  %}">Logout</a>
+</div>
+</div>
+
+
+
+
+
+</ul>
+</div>
+</nav>
+</div>
+<!-- ============================================================== -->
+<!-- end navbar -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- left sidebar -->
+<!-- ============================================================== -->
+<div class="nav-left-sidebar sidebar-dark">
+<div class="menu-list">
+<nav class="navbar navbar-expand-lg navbar-light">
+<a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav flex-column">
+<li class="nav-divider">
+    Menu
+</li>
+<li class="nav-item ">
+    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+  
+    <div id="submenu-1" class=" submenu" style="">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collap" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2" style="width:700px;">Welcome {{ user.username }}</a>
+                        </li>
+                <div id="submenu-1-2" class="submenu" style="">
+                    <ul class="nav flex-column">
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Reward:customer_dash' %}">Dashboard</a>
+                        </li>
+                     
+
+                        <li class="nav-item">
+                            <a class="nav-link"  href="{% url 'Reward:dashboard' %}">Customer Master</a>
+                        </li>
+
+                         <li class="nav-item">
+                            <a class="nav-link"  href="{% url 'Reward:customer_reward' %}">Customer Rewards</a>
+                        </li>
+
+                        
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Reward:customer_report' %}">Rewards Report</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'Reward:logout'  %}">Logout</a>
+                        </li>
+                       
+
+                        <li class="nav-item">
+                          <!--   <a class="nav-link" href="ecommerce-product-checkout.html">Product Checkout</a> -->
+                        </li>
+                    </ul>
+                </div>
+
+            
+
+            </li>
+        
+
+        </ul>
+    </div>
+</li>
+
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<!-- ============================================================== -->
+<!-- end left sidebar -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- wrapper  -->
+<!-- ============================================================== -->
+<div class="dashboard-wrapper">
+
+<div class="container">
+
+
+
+
+{% block content %}                                                
+{% endblock %}  
+
+
+   
+
+
+
+<!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+<!-- Start:- Footer  -->
+<footer class="footer-content p-2 " id="aBCFooter" style="margin-left:680; background: #ffab62;margin-top: 700px;
+    width: 100%;
+    height: 100%;
+    /* position: absolute; - remove this*/
+    /* bottom: 0; - remove this*/
+    /* left: 0; - remove this*/">
+<span>
+&copy; <span >2021</span> <a href="http://instorerewards.co/" target="_blank">Instore Rewards.</a> All RightReserved. 
+</span>
+<a href="https://b.link/appsupport" target="_blank">
+<span>Customer Support</span>
+</a>
+</footer>                    <!-- End:- Footer  -->
+
+<!-- ============================================================== -->
+<!-- end footer -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- end wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- end main wrapper  -->
+<!-- ============================================================== -->
+<!-- Optional JavaScript -->
+<!-- jquery 3.3.1 -->
+<script src="{% static 'vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+
+
+
+<!-- bootstap bundle js -->
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap-paginator.js' %}"></script>
+
+
+
+<!-- slimscroll js -->
+<script src="{% static 'vendor/slimscroll/jquery.slimscroll.js' %}"></script>
+<!-- main js -->
+<script src="{% static 'libs/js/main-js.js' %}"></script>
+<!-- chart chartist js -->
+<script src="{% static 'vendor/charts/chartist-bundle/chartist.min.js' %}"></script>
+<!-- sparkline js -->
+<script src="{% static 'vendor/charts/sparkline/jquery.sparkline.js' %}"></script>
+<!-- morris js -->
+<script src="{% static 'vendor/charts/morris-bundle/raphael.min.js' %}"></script>
+<script src="{% static 'vendor/charts/morris-bundle/morris.js' %}"></script>
+<!-- chart c3 js -->
+<script src="{% static 'vendor/charts/c3charts/c3.min.js' %}"></script>
+<script src="{% static 'vendor/charts/c3charts/d3-5.4.0.min.js' %}"></script>
+<script src="{% static 'vendor/charts/c3charts/C3chartjs.js' %}"></script>
+<script src="{% static 'libs/js/dashboard-ecommerce.js' %}"></script>
+
+
+
+<script src="{% static 'js/inline-valid/main.js' %}"></script>
+<script src="{% static 'js/inline-valid/jquery.min.js' %}"></script>
+<!-- Foundation & FontAwesome -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/inline-valid/foundation.css' %}">
+<script src="{% static 'js/inline-valid/d3.v3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/inline-valid/trianglify.min.js' %}"></script>
+
+
+<script src="{% static 'js/inline-valid/jquery-1.12.2.min.js' %}"></script>
+<script src="{% static 'js/inline-valid/sweetalert2.js' %}"></script>
+
+
+<!-- Inline validation -->
+
+<script src="{% static 'js/inline-valid/tooltipster.bundle.min.js' %}"></script>
+<script src="{% static 'js/inline-valid/jquery.min.js' %}"></script>
+<script src="{% static 'js/inline-valid/jquery.validate.js' %}"></script>
+<script src="{% static 'js/inline-valid/additional-methods.js' %}"></script>
+
+<script type="text/javascript">
+
+$.validator.addMethod('h_telno', function (value, element) {
+value = value.replace(/\s+/g, "");
+return this.optional(element) || value.length > 9 &&
+value.match(/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/);
+}, "Please enter a valid phone number");
+
+
+$.validator.addMethod("anyDate",
+function(value, element) {
+return value.match(/^(0?[1-9]|[12][0-9]|3[0-1])[/., -](0?[1-9]|1[0-2])[/., -](19|20)?\d{2}$/);
+},
+"Valid date required!"
+);
+
+$(document).ready(function() {
+
+$("#labtest-form2").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+city : {
+required: true,
+},
+
+Area : {
+required: true,
+},
+member2: {
+required: true,
+},
+member : {
+required: true,
+},
+telno : {
+required: true,
+h_telno: true
+},
+
+username: {
+required: true,
+minlength: 3
+},
+
+address : {
+required: true,
+minlength: 3
+},
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+address: {
+required:"Address is required",
+minlength: "Address should be at least 3 characters"
+},
+telno: {
+required:"phonenumber is required",
+},
+
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});
+
+
+
+
+
+
+// validate ambulance
+//ity,Area, address, countryCode, phone, username, deliv_fee, 
+$("#post-form2").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+city : {
+required: true,
+},
+
+Area : {
+required: true,
+},
+address : {
+required: true,
+minlength: 3
+},
+phone : {
+required: true,
+h_telno: true
+},
+username: {
+required: true,
+minlength: 3
+},
+
+
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+address: {
+required:"Address is required",
+minlength: "Address should be at least 3 characters"
+},
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});  //end ambulance valid
+
+
+// validate Medicines
+//ity,Area, address, countryCode, phone, username, deliv_fee, 
+$("#med_form").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+city : {
+required: true,
+},
+
+area : {
+required: true,
+},
+address : {
+required: true,
+minlength: 3
+},
+telno : {
+required: true,
+h_telno: true
+},
+username: {
+required: true,
+minlength: 3
+},
+age:{
+required: true,
+integer: true
+},
+
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+address: {
+required:"Address is required",
+minlength: "Address should be at least 3 characters"
+},
+age: {
+required:"Age is required",
+integer: "only integers required"
+},
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});  //end Medicine valid
+
+// validate Illness
+//illness,telno, username,city, dname
+$("#illness_form").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+illness : {
+required: true,
+minlength:8
+},
+telno : {
+required: true,
+h_telno: true
+},
+username: {
+required: true,
+minlength: 3
+},
+dname: {
+required: true,
+},
+
+name: {
+required: true,
+},
+fever: {
+required: true,
+},
+cough: {
+required: true,
+},
+contwith: {
+required: true,
+},
+moved: {
+required: true,
+},
+district: {
+required: true,
+},
+
+breath: {
+required: true,
+},
+
+
+
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});  //end Illness  valid
+
+
+
+});
+
+
+
+
+$(document).ready(function () { 
+$(document).ajaxStart(function () {
+$('#wait').show();
+});
+$(document).ajaxStop(function () {
+$('#wait').hide();
+});
+$(document).ajaxError(function () {
+$('#wait').hide();
+});   
+});
+
+</script>
+
+{% block javascript %}
+
+{% endblock %}
+
+
+</body>
+
+</html>

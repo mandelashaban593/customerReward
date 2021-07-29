@@ -1,0 +1,138 @@
+{% load static %}
+    <!-- END nav -->
+
+
+<div class="container-register100" style="flex: 1 0 auto;
+background-color: #ffffff;">
+        <form class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30" action="{% url 'Reward:login_user'  %}"  method="POST" autocomplete="off" class="form-style-6" style="width:600px;" >
+   
+{% csrf_token %}
+
+
+<span class="login100-form-title">
+ <h1><img src="{% static 'img/welcome.png' %}" style="max-width:140px;"><br/>
+ Welcome</h1>
+                     </span>  
+
+
+    <div class="input-group">
+      <div class="row">
+        <h3><label class="c-gray-light">Username</label></h3>
+      </div>   
+       <input class="input100 col-sm-9" type="text" name="username" value="{{username}}"  placeholder ="Username"  id="username" >
+
+      </div>
+        
+        <div class="input-group">
+      <div class="row">
+        <h3><label class="c-gray-light">Password</label></h3>
+      </div>   
+
+       <input class="input100 col-sm-9" type="password" name="password" placeholder ="Password"  id="password">
+
+
+      </div>
+
+    
+      <div class="row">
+        <input type="hidden" name="role"  id="dname" value="patient"/> 
+        <input type="hidden" name="page"  id="dname" value="0"/>       
+       <input type="hidden" size=65 name="Address">  
+     </div>
+
+
+      <div class="row clearfix">
+                  
+      <div class="bt" style="background-color: #292929;
+color: #ffffff;
+width: 120px;
+height: 50px;
+-webkit-transition: .9s;
+transition: .9s; margin-left: 120px;"><button type="submit" id="submit"  class="sbtn btn-primary btn-lg" style="background-color: #292929;
+color: #ffffff;
+width: 120px;
+height: 50px;
+-webkit-transition: .9s;
+transition: .9s;">Submit</button></div> 
+
+      <div class="input-group clearfix">
+      {% if username %}
+      <div class="btn">
+     Don't have an account? <a href="{% url 'register2' username=username %}" class="btn btn-link btn-lg" >Sign up!</a>
+    </div>
+    {% else %}
+
+    <div class="bn" style="    font-weight: 400;
+    color: #007bff;margin-left: 100px;margin-top: 20px;
+"><a href="#" class="sbtn btn-primay btn-lg"><span>Customer Support</span></a></div> 
+    {% endif %}
+
+      </div>
+
+    </div>
+
+
+
+    </form>
+
+
+
+
+
+
+     <script type="text/javascript">
+var numbers = /^[0-9]+$/;
+
+function chkblnk(eid,errid)
+{
+var x=document.getElementById(eid).value;
+if(x=="")
+{
+document.getElementById(errid).innerHTML="pls fill this field";
+}
+else
+{
+document.getElementById(errid).innerHTML="";
+}
+}
+ 
+function chkAplha(event,err)
+{
+if(!((event.which>=65 && event.which<=90) || (event.which>=97 && event.which<=122) || event.which==0 || event.which==8))
+{
+document.getElementById(err).innerHTML="invalid name format";
+return false;
+}
+}
+ 
+
+
+
+function chkeid()
+{
+var e=document.getElementById("phone").value;
+
+if(atpos<4 || dotpos<atpos+3)
+{
+document.getElementById("error2").innerHTML="invalid email";
+}
+else
+{
+document.getElementById("error2").innerHTML="";
+}
+//alert(atpos+" "+dotpos);
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+  </div>
+

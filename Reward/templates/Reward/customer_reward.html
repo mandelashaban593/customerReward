@@ -1,0 +1,318 @@
+
+{% extends "Reward/base.html" %}
+
+{% load static %}
+
+
+<!--     for  django bootstrap themes
+ -->
+
+ {% block javascript %}
+  <script src="{% static 'books/js/books.js' %}"></script>
+
+
+<script type="text/javascript">
+$( document ).ready( function() {
+    $( '#q' ).keyup( function() {
+        q = $( '#q' ).val();
+        $( '#results' ).html( '&nbsp;' ).load( '{% url 'Reward:search' %}?q=' + q );
+    });
+});
+
+</script>
+
+
+{% endblock %}
+
+
+ {% block content %} 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+<script type="text/javascript">
+
+
+
+
+
+$(document).ready(function(){
+    // Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(
+      function(){
+        var userRating = this.value;
+        if(userRating==9){
+          $("#free").show();
+        } else {
+          $("#free").hide();
+        }
+        /*alert(userRating);*/
+    }); 
+});
+</script>
+
+
+<style type="text/css">
+  .rating {
+    float:left;
+    width:300px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:30px;
+    height:30px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+select {
+    word-wrap: normal;
+}
+button, select {
+    text-transform: none;
+}
+
+input, button, select, optgroup, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+#hidden_div {
+    display: none;
+}
+
+
+
+
+rating > input:checked ~ label {
+    color: #F00;
+}
+.rating:not(:checked) > label {
+    float: right;
+    width: 1em;
+    padding: 0 .1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 600%;
+    line-height: 1.2;
+    color: #ddd;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
+
+
+</style>
+
+ <!-- Start:- Content Section -->
+
+ <!-- Start:- Content Section 02 -->
+                <div class="col-md-12 akits-content-main" id="aConM">
+                    <!-- Start:- Breadcrumb and Buttons -->
+                    <div class="row m-0">
+
+                        <!-- Start:- Breadcrumb -->
+                        <div class="col-md-6 col-lg-10 p-0 breadcrumb-main-div">
+
+                            <ul class="breadcrumb p-3">
+                                <li class="breadcrumb-item"><a href="{% url 'Reward:dashboard' %}">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Customers</li>
+                            </ul>
+                            
+                        </div>
+                        <!-- End:- Breadcrumb -->
+
+                        <!-- Start:- Control Buttons -->
+                        <div class="col-md-6 col-lg-2 control-btn-div">
+                            
+                            <a href="{% url 'Reward:customer_dash' %}" class="btn btn-dark m-1">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>
+
+                            </a>
+
+                            <button class="btn btn-dark m-1" onclick="wreload()">
+                            
+                               <i class="fa fa-repeat" aria-hidden="true"></i>
+
+
+                            </button>
+<!-- <i class="fas fa-search"></i> -->
+
+                           
+
+                            <!-- Start:: Create Customers-->
+         
+                           
+                            <!-- end:: Create Customers-->
+
+
+                        </div>
+                        <!-- End:- Control Buttons -->
+
+                    </div>
+                    <!-- End:- Breadcrumb and Buttons -->
+
+                
+                      
+
+<form method="post" enctype="multipart/form-data" class="form-horizontal"  action="{% url 'Reward:rating'  %}"  id="identicalForm">
+<!-- Start:: Header -->
+
+<!-- End:: Header -->
+
+
+
+<div class="form-group ">
+  {% if addedscore %}
+  <label style="color: #856404;
+background-color: #fff3cd;
+border-color: #ffeeba;">Well done! Successfully added  score! </label>
+
+    {% endif %}
+
+</select>
+
+
+</div>
+
+
+<!-- Start:: Body -->
+<div class="modal-body"  style="">
+<div class="form-group">
+<label> Search Customer :</label>
+
+<input id="q" type="text" name="fname" placeholder="Search Customer" />
+   
+</div>
+
+<label>Customer :</label>
+<div class="form-group"  >
+
+    <select name="fullname"  size="3" required="required" class="form-control" id="results"  onchange="showDiv('hidden_div', this)">
+    
+    <option disabled="">Please search !</option>
+    
+    </select>
+
+
+
+</div>
+
+
+<div class="form-group ">
+<div class="container" id="rewardContainer" style="display: none">
+<div class="row justify-content-center" >
+
+</div>
+
+<div class="row" id="reward">
+
+</div>
+</div>
+</div>
+
+
+</div>
+<!-- End:: Body -->
+
+<div class="rating row container" style="width:1000px; 
+  justify-content: center; float: left;" id="hidden_div"  >
+
+    <span><input type="radio" name="rating" id="str9" value="9" class="radio-btn hide" ><label for="str9"></label></span>
+    <span><input type="radio" name="rating" id="str8" value="8" class="radio-btn hide" ><label for="str8"></label></span>
+  <span><input type="radio" name="rating" id="str9" value="9" class="radio-btn hide" ><label for="str9"></label></span>
+  <span><input type="radio" name="rating" id="str8" value="8" class="radio-btn hide" ><label for="str8"></label></span>
+  <span><input type="radio" name="rating" id="str7" value="7" class="radio-btn hide" ><label for="str7"></label></span>
+  <span><input type="radio" name="rating" id="str6" value="6" class="radio-btn hide" ><label for="str6"></label></span>
+    <span><input type="radio" name="rating" id="str5" value="5" class="radio-btn hide" ><label for="str5"></label></span>
+    <span><input type="radio" name="rating" id="str4" value="4" class="radio-btn hide" ><label for="str4"></label></span>
+    <span><input type="radio" name="rating" id="str3" value="3" class="radio-btn hide" ><label for="str3"></label></span>
+    <span><input type="radio" name="rating" id="str2" value="2" class="radio-btn hide" ><label for="str2"></label></span>
+    <span><input type="radio" name="rating" id="str1" value="1" class="radio-btn hide" ><label for="str1"></label></span>
+    </div>
+
+
+<div class="form-group" style="display:none; margin-top: 70px;float:right; margin-right:900px;margin-bottom: 100px;" id="free">
+
+<div  class="display: table ">
+<label> <img src="{% static 'img/free.png' %}" style="width:100px"></label>
+
+ <input id="results"  name="free_product" type="text" placeholder="Free item"  value=""  class="form-control" style="with:900px" />
+ </div>
+
+</div>
+
+
+
+<!-- Start:: Footer -->
+<div class="modal-fter justify-cntent-enter" id="rewardFooter" style="display: nn;margin-top:20 ">
+<button type="submit" class="btn btn-success float-right">
+<i class="fas fa-save"></i>&nbsp;Add Customer Reward  
+</button>
+</div>
+        
+</form> 
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function showDiv(divId, element)
+{
+    document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'block';
+}
+
+</script>
+{% endblock %}
