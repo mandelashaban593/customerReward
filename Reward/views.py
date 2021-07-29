@@ -18,6 +18,9 @@ from Reward.models import Register
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login
 from django.shortcuts import render
+from django.contrib import auth
+from django.contrib.auth import logout
+
 
 import csv
 
@@ -169,8 +172,8 @@ def customer_dash(request):
 
 
 
-def logout(request):
-    auth.logout(request)
+def logout_view(request):
+    logout(request)
     return render(request,'Reward/index.html')
  
 
@@ -389,24 +392,27 @@ def rating(request):
        
         post_values = request.POST.copy()
         fname = request.POST.get('fname', False)
-        fullname = request.POST.get('fullname', False)
+        customer_id = request.POST.get('customer_id', False)
         
 
         free_product = request.POST.get('free_product', 0)
         rating = request.POST.get('rating', False)
         rating=float(rating)
+        print("Rating %s" % (rating))
 
         try:
-            check_record = Customer.objects.get(fname=fname)
+            check_record = Customer.objects.get(id=customer_id)
         except Exception as e:
             pass
 
         check_phone =   check_record.phone
-        lname =   check_record.lname   
-        if fname and fullname:
+        lname =   check_record.lname
+        fname2 =   check_record.fname  
+        fullname = "%s %s" % (fname2,lname)
+        if fname and fname2:
 
-            cust_score=Rating(fname=fname,lname=lname, fullname=fullname, score= int(rating), fscore=free_product ,
-                 phone= check_phone)
+            cust_score=Rating(fname=fname,lname=lname, fullname=fullname,
+             score= int(rating), fscore=free_product, phone=check_phone)
             cust_score.save()
 
         if cust_score:
@@ -507,6 +513,22 @@ def export_customer_csv(request):
         writer.writerow(rating)
 
     return response
+
+def export_customer_csv2(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="4rewards_bkp.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['FirstName', 'LastName', 'Phone'])
+              
+
+
+    rating = Customer.objects.all().values_list('fname', 'lname', 'phone')
+    for rating in rating:
+        writer.writerow(rating)
+
+    return response
+
 
 
 def customer_details(request, id):

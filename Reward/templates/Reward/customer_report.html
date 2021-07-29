@@ -5,308 +5,315 @@
 
 
 <!--     for  django bootstrap themes
- -->
+-->
 
 
- {% block stylesheet %}
- <link href="{% static 'patient/css/bootstrap.min.css' %}"  rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+{% block stylesheet %}
+<link href="{% static 'patient/css/bootstrap.min.css' %}"  rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 
 
 <head>
-  
+
 {% endblock %}
 
-  {% block javascript %}
- 
-   <script src="{% static 'patient/js/jquery-3.2.1.min.js' %}" ></script>
-    <script src="{% static 'patient/js/bootstrap.min.js' %}" ></script>
-    
-  <script src="{% static 'patient/js/patient.js' %}"></script>
+{% block javascript %}
+
+<script src="{% static 'patient/js/jquery-3.2.1.min.js' %}" ></script>
+<script src="{% static 'patient/js/bootstrap.min.js' %}" ></script>
+
+<script src="{% static 'patient/js/patient.js' %}"></script>
 {% endblock %}
 
 
 
- {% block content %} 
+{% block content %} 
 
 
 
 
 
- <!-- Start:- Content Section 02 -->
-                <div class="col-md-12 akits-content-main" id="aConM">
-                    <!-- Start:- Breadcrumb and Buttons -->
-                    <div class="row m-0">
+<!-- Start:- Content Section 02 -->
+<div class="col-md-12 akits-content-main" id="aConM">
+<!-- Start:- Breadcrumb and Buttons -->
+<div class="row m-0">
 
-                        <!-- Start:- Breadcrumb -->
-                        <div class="col-md-6 col-lg-10 p-0 breadcrumb-main-div">
+<!-- Start:- Breadcrumb -->
+<div class="col-md-6 col-lg-10 p-0 breadcrumb-main-div">
 
-                            <ul class="breadcrumb p-3">
-                                <li class="breadcrumb-item"><a href="{% url 'Reward:dashboard' %}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Customers</li>
-                            </ul>
-                            
-                        </div>
-                        <!-- End:- Breadcrumb -->
+<ul class="breadcrumb p-3">
+<li class="breadcrumb-item"><a href="{% url 'Reward:dashboard' %}">Dashboard</a></li>
+<li class="breadcrumb-item active">Customers</li>
+</ul>
 
-                        <!-- Start:- Control Buttons -->
-                        <div class="col-md-6 col-lg-2 control-btn-div">
-                            
-                            <a href="{% url 'Reward:customer_dash' %}" class="btn btn-dark m-1">
-                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-                            </svg>
+</div>
+<!-- End:- Breadcrumb -->
 
-                            </a>
+<!-- Start:- Control Buttons -->
+<div class="col-md-6 col-lg-2 control-btn-div">
 
-                            <button class="btn btn-dark m-1" onclick="wreload()">
-                            
-                               <i class="fa fa-repeat" aria-hidden="true"></i>
+<a href="{% url 'Reward:customer_dash' %}" class="btn btn-dark m-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg>
+
+</a>
+
+<button class="btn btn-dark m-1" onClick="Refresh()">
+
+<i class="fa fa-redo" aria-hidden="true"></i>
 
 
-                            </button>
+</button>
 <!-- <i class="fas fa-search"></i> -->
 
-                           
-
-                            <!-- Start:: Create Customers-->
-         
-                              <a href="{% url 'Reward:customer_reward' %}" class="btn btn-dark">
-                                <i class="fa fa-plus"></i></a>
-                            
-      
-                            <!-- end:: Create Customers-->
 
 
-                        </div>
-                        <!-- End:- Control Buttons -->
+<!-- Start:: Create Customers-->
+<button class="btn btn-dark m-1">
+<a href="{% url 'Reward:customer_reward' %}" class="btn btn-dark">
+<i class="fa fa-plus"></i></a>
 
-                    </div>
-                    <!-- End:- Breadcrumb and Buttons -->
+</button>
 
-                    <!-- Start:- Content Section -->
-                    <div class="col-12 p-2 p-sm-3 akits-content akits-content-common" id="innerCon">
-                        
-                        <div class="row m-0 p-0">
-
-                            <div class="col-12">
-                                <form>
-                                    <div class="input-group">
-                    
-                                        <input type="text" id="myInput" onkeyup="myFunction()"  class="form-control fa fa-search"   placeholder="Search Customers" title="Type in a name">
+<!-- end:: Create Customers-->
 
 
-                                        <div class="input-group-append">
-                                            <button class="btn btn-dark" type="submit">
-                                               <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                    <div class="input-group-append">
-                         
-                                            <a href="{% url 'Reward:customers_report_list'  %}"  class="btn btn-dark -1 1 "></i>
-                       <i class="fa fa-list"></i>Reward List
-                      </a>
+</div>
+<!-- End:- Control Buttons -->
 
-                               
-                                            <a href="{% url 'Reward:export_customer_csv'  %}"  class="btn btn-dark -1 1 "></i>
-                       <i class="fa fa-list"></i>Download
-                      </a>
+</div>
+<!-- End:- Breadcrumb and Buttons -->
+
+<!-- Start:- Content Section -->
+<div class="col-12 p-2 p-sm-3 akits-content akits-content-common" id="innerCon">
+
+<div class="row m-0 p-0">
+
+<div class="col-12">
+<form>
+<div class="input-group">
+
+<input type="text" id="myInput" onkeyup="myFunction()"  class="form-control fa fa-search"   placeholder="Search Customers" title="Type in a name">
 
 
-                                        </div>
-                                    </div>
-                  
-                                </form>
-                            </div>
+<div class="input-group-append">
+<button class="btn btn-dark" type="submit">
+<i class="fa fa-search"></i>
+</button>
+</div>
+<div class="input-group-append">
 
-                        </div>
-  
+<a href="{% url 'Reward:customers_report_list'  %}"  class="btn btn-dark -1 1 "></i>
+<i class="fa fa-list"></i>Reward List
+</a>
+
+
+<a href="{% url 'Reward:export_customer_csv'  %}"  class="btn btn-dark -1 1 "></i>
+<i class="fa fa-list"></i>Download
+</a>
+
+
+</div>
+</div>
+
+</form>
+</div>
+
+</div>
+
 <table id="myTable" class="tabe table-responive " style="width:0PX">
-  <tr class="header" style="width:1000PX">
-    <th  style="">First Name</th>
-    <th  style="">Last Name</th>
+<tr class="header" style="width:1000PX">
+<th  style="">First Name</th>
+<th  style="">Last Name</th>
 
 <th  style="">Phone</th>
 <th style="">Average Stars</th>
 <th style="">Rewards Count</th>
 
 
-  </tr>
-    {% include 'Reward/includes/partial_customer_list2.html' %}
- 
+</tr>
+{% include 'Reward/includes/partial_customer_list2.html' %}
+
 </table>
 
 
 
-                                             <div class="clearfix">
-                <div class="hint-text"></div>
-                  <nav aria-label="Page navigation example" class="table-responsive mb-2">
+<div class="clearfix">
+<div class="hint-text"></div>
+<nav aria-label="Page navigation example" class="table-responsive mb-2">
 
 <ul class="pagination mb-0">
 
 {% if books.has_previous %}
-    <li  class="page-item"><a class="page-link" href="?page={{ books.previous_page_number }}" ><i class="fa fa-chevron-left" aria-hidden="true">Previous</i></a></li>
+<li  class="page-item"><a class="page-link" href="?page={{ books.previous_page_number }}" ><i class="fa fa-chevron-left" aria-hidden="true">Previous</i></a></li>
 {% else %}
-    <li class="page-item disabled"><span><i class="fa fa-chevron-left page-link" aria-hidden="true">Previous</i></span></li>
+<li class="page-item disabled"><span><i class="fa fa-chevron-left page-link" aria-hidden="true">Previous</i></span></li>
 {% endif %}
 
 {% if books.number|add:'-4' > 1 %}
-    <li  class="page-item"><a  class="page-link" href="?page={{ books.number|add:'-5' }}">&hellip;</a></li>
+<li  class="page-item"><a  class="page-link" href="?page={{ books.number|add:'-5' }}">&hellip;</a></li>
 {% endif %}
 
 {% for i in books.paginator.page_range %}
-    {% if books.number == i %}
-        <li class="page-item active"><a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a></li>
-    {% elif i > books.number|add:'-5' and i < books.number|add:'5' %}
-        <li  class="page-item"> <a class="page-link"  href="?page={{ i }}">{{ i }}</a></li>
-    {% endif %}
+{% if books.number == i %}
+<li class="page-item active"><a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a></li>
+{% elif i > books.number|add:'-5' and i < books.number|add:'5' %}
+<li  class="page-item"> <a class="page-link"  href="?page={{ i }}">{{ i }}</a></li>
+{% endif %}
 {% endfor %}
 
 {% if books.paginator.num_pages > books.number|add:'4' %}
-    <li  class="page-item"><a class="page-link" href="?page={{ books.number|add:'5' }}">&hellip;</a></li>
+<li  class="page-item"><a class="page-link" href="?page={{ books.number|add:'5' }}">&hellip;</a></li>
 {% endif %}
 
 {% if books.has_next %}
-    <li  class="page-item"><a class="page-link" href="?page={{ books.next_page_number }}"><i class="fa fa-chevron-right" aria-hidden="true">Next</i></a></li>
+<li  class="page-item"><a class="page-link" href="?page={{ books.next_page_number }}"><i class="fa fa-chevron-right" aria-hidden="true">Next</i></a></li>
 {% else %}
-    <li class="page-item disabled"><span><i class="fa fa-chevron-right page-link" aria-hidden="true">Next</i></span></li>
+<li class="page-item disabled"><span><i class="fa fa-chevron-right page-link" aria-hidden="true">Next</i></span></li>
 {% endif %}
 
 </ul>
 
 </nav>
 
-        </div>
-                    <!-- End:- Content Section -->
-
-                  
+</div>
+<!-- End:- Content Section -->
 
 
 
 
 
 
-            <div class="dashboad-ecommerce">
-                <div class="container-fluid dashoard-content ">
-                    <!-- ============================================================== -->
-                    <!-- pageheader  -->
-                    <!-- ============================================================== -->
-
-                      <div class="row">
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="page-header">
-                                <h2 class="pageheader-title"></h2>
-                                
-                                <div class="page-breadcrumb">
-                                    <nav aria-label="breadcrumb">
-                                       
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                        <div class="row">
-                   
-                                    <div class="card-body">
-
-                                        <form method="GET"    class="">   
-                             <div class="form-row" style="width:340px">  
-                              <div class="col">
-                               <input class="form-control" name="q"  type="hidden" value="{{ request.GET.q }}" type="text" placeholder="Search" aria-label="Search" >
-                             </div>
-                             <div class="col">
-                              <button class="btn btn-primary justify-content-right"  type="hidden"></button>
-                            </div>
-
-                            </div>
-                            
-                           </form>
-            
-                                    
-                                </div>
-
-                         </div>     
 
 
-                        <div class="row" style="width:1100px">
+<div class="dashboad-ecommerce">
+<div class="container-fluid dashoard-content ">
+<!-- ============================================================== -->
+<!-- pageheader  -->
+<!-- ============================================================== -->
 
-                          <div class="row m-0 p-0">
+<div class="row">
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="page-header">
+<h2 class="pageheader-title"></h2>
 
-                            <div class="col-12">
-                                <form>
-                                    <div class="input-group">
-                    
-                                      
-                                        <div class="input-group-append">
-                      
+<div class="page-breadcrumb">
+<nav aria-label="breadcrumb">
 
-                                        </div>
-                                    </div>
-                  
-                                </form>
-                            </div>
-
-                        </div>
-  
+</nav>
+</div>
+</div>
+</div>
+</div>
 
 
 
-                      
-                      <div class="modal fade" id="modal-book">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                          </div>
-                        </div>
- 
+<div class="row">
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<div class="card-body">
+
+<form method="GET"    class="">   
+<div class="form-row" style="width:340px">  
+<div class="col">
+<input class="form-control" name="q"  type="hidden" value="{{ request.GET.q }}" type="text" placeholder="Search" aria-label="Search" >
+</div>
+<div class="col">
+<button class="btn btn-primary justify-content-right"  type="hidden"></button>
+</div>
+
+</div>
+
+</form>
+
+
+</div>
+
+</div>     
+
+
+<div class="row" style="width:1100px">
+
+<div class="row m-0 p-0">
+
+<div class="col-12">
+<form>
+<div class="input-group">
+
+
+<div class="input-group-append">
+
+
+</div>
+</div>
+
+</form>
+</div>
+
+</div>
 
 
 
 
-                            
-                    </div>
-                </div>
-            </div>
+
+<div class="modal fade" id="modal-book">
+<div class="modal-dialog">
+<div class="modal-content">
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+</div>
+</div>
 
 
 
 
 <script>
 function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTable");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+td = tr[i].getElementsByTagName("td")[0];
+if (td) {
+txtValue = td.textContent || td.innerText;
+if (txtValue.toUpperCase().indexOf(filter) > -1) {
+tr[i].style.display = "";
+} else {
+tr[i].style.display = "none";
+}
+}       
+}
 }
 </script>
 
-            
-            <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('#book-table').DataTable();
-        });
-    </script>
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready(function(){
+$('#book-table').DataTable();
+});
+
+function Refresh() {
+        window.parent.location = window.parent.location.href;
+    }
 
 
-            {% endblock %}
+</script>
+
+
+{% endblock %}

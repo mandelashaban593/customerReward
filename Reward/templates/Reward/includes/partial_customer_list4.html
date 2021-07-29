@@ -1,19 +1,16 @@
 {% for book in books %}
-  <tr  class="d-flex" >
-    <td  class="w-25">{{ book.fname }}</td>
-    <td class="w-25">{{ book.lname }}</td>
-    <td class="w-25">{{ book.phone}}</td>
-     <td class="w-25"> {{ book.score}}</td>
-      <td class="w-25">{{ book.date}}</td>
-       <td class="w-25">{{ book.fscore}}</td>
+<tr style="width:1000PX"> 
+    <td>{{ book.fname }}</td>
+    <td>{{ book.lname }}</td>
+    <td>{{ book.phone}}</td>
+    <td>{{ book.score}}</td>
+    <td>{{ book.date}}</td>
+<td>{{ book.fscore}}</td>
 
-
-    <td>
-
-    </td>
+ 
   </tr>
 {% empty %}
-  <tr  class="d-flex">
+  <tr style="width:1000PX">
     <td colspan="8" class="text-center bg-warning">No customer</td>
   </tr>
 {% endfor %}
