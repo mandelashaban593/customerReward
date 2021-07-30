@@ -1,0 +1,10 @@
+{% if results|length %}
+	
+{% for r in results %}
+<option value="{{r.id}}">{{ r.fname }} {{ r.lname}}</option>
+{% endfor %}
+
+
+{% else %}
+	
+{% endif %}

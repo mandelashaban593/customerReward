@@ -1,0 +1,97 @@
+
+{% extends "Reward/base.html" %}
+
+{% load static %}
+
+
+<!--     for  django bootstrap themes
+ -->
+
+ {% block javascript %}
+  <script src="{% static 'books/js/books.js' %}"></script>
+{% endblock %}
+
+
+ {% block content %} 
+
+
+
+
+      <div class="masonry-item col-12">
+        <!-- #Site Visits ==================== -->
+        <!-- Start:- Content Section 02 -->
+                <div class="col-md-12 akits-content-main" id="aConM">
+                    <!-- Start:- Breadcrumb and Buttons -->
+                    <div class="row m-0">
+
+                        <!-- Start:- Breadcrumb -->
+                        <div class="col-md-12 col-lg-12 p-0 breadcrumb-main-div">
+
+                            <ul class="breadcrumb p-3">
+                                <li class="breadcrumb-item"><a href="{% url 'Reward:dashboard' %}">Welcome to Customer Rewards</a></li>
+                            </ul>
+                            
+                        </div>
+                        <!-- End:- Breadcrumb -->
+
+
+                    </div>
+                    <!-- End:- Breadcrumb and Buttons -->
+
+                    <!-- Start:- Content Section -->
+          
+                    <div class="col-12 p-5 akits-content d-md-block d-lg-block" id="Summary">
+                                      
+            <div class="round  m-0 mb-3 col-lg-4 float-left ">
+            <div class="bg-dark text-white clearfix p-3">
+              <h4 class="text-center">Customer Master</h4>
+            </div>
+            <div class="widget-body clearfix justify-content-center" style="min-height: 100px;">
+              <h5 class="text-center">
+              Customer Master Details             </h5>
+            </div>
+            <div class="widget-body clearfix">
+
+              <a class="btn btn-primary btn-block" href="{% url 'Reward:dashboard' %}">Open</a>
+
+              </div>
+              
+            </div>
+                                        
+            <div class="round  m-0 mb-3 col-lg-4 float-left ">
+            <div class="bg-dark text-white clearfix p-3">
+              <h4 class="text-center">Customer Rewards</h4>
+            </div>
+            <div class="widget-body clearfix justify-content-center" style="min-height: 100px;">
+              <h5 class="text-center">
+              Customer Rewards              </h5>
+            </div>
+            <div class="widget-body clearfix">
+              <a class="btn btn-primary btn-block" href="{% url 'Reward:customer_reward' %}">Open</a>
+              </div>
+              
+            </div>
+                                        
+            <div class="round  m-0 mb-3 col-lg-4 float-left ">
+            <div class="bg-dark text-white clearfix p-3">
+              <h4 class="text-center">Rewards Report</h4>
+            </div>
+            <div class="widget-body clearfix justify-content-center" style="min-height: 100px;">
+              <h5 class="text-center">
+              Customer Rewards Report             </h5>
+            </div>
+            <div class="widget-body clearfix">
+              <a class="btn btn-primary btn-block" href="{% url 'Reward:customer_report' %}">Open</a>
+              </div>
+              
+            </div>
+                                                    
+          </div>
+
+                    <!-- End:- Content Section -->
+
+                </div>
+                <!-- End:- Content Section 02 -->
+
+            
+            {% endblock %}

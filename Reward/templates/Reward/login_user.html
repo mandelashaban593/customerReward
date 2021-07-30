@@ -1,0 +1,35 @@
+{% extends 'Reward/base2.html' %}
+{% load static %}
+
+
+{% if auth_error %}
+
+    <strong>
+    <script>alert("Invalid Username or Password")</script>
+    </strong>
+
+{% endif %}
+ 
+
+
+{% block content %}
+
+
+
+
+ {% include "Reward/login.html" %}
+
+
+
+    
+
+  {% endblock %}
+
+
+    
+
+
+
+
+
+

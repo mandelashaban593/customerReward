@@ -1,0 +1,649 @@
+{% load static %}
+
+<!--     for  django bootstrap themes
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-149765035-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-149765035-1');
+</script>
+
+{% include 'Reward/metadata.html' %}
+<title> </title>
+
+<link rel="icon" href="{% static 'img/edoctor.png' %}">
+
+<link href="{% static 'css/slider.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="{% static 'css/style.css' %} "> 
+
+<link rel="stylesheet" href="{% static 'css/style_nav.css' %}" type="text/css" media="all" />
+<script src="http://code.angularjs.org/1.2.6/angular.js"></script> 
+<script src="app.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+<script src="{% static "js/jquery-1.12.2.min.js" %}" type="text/javascript"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+<script src="{% static "js/jquery-1.12.2.min.js" %}" type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+<!-- Modal custome  for css -->
+
+<!--     Django messages styling plugins -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<!-- Modal custome  for jquery -->
+<script src="{% static 'js/alertify.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/alertify.core.css' %}" />
+<link rel="stylesheet" href="{% static 'css/alertify.default.css' %}" id="toggleCSS" />
+<script src="{% static 'js/script.js' %}"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %} ">
+<link rel="stylesheet" href="{% static 'css/animate.css' %} ">
+
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %} ">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %} ">
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %} ">
+
+<link rel="stylesheet" href="{% static 'css/aos.css' %} ">
+
+<link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %} ">
+<link rel="stylesheet" href="{% static 'css/jquery.timepicker.css' %} ">
+
+<!-- table records and pagination tab -->
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.pagination.css' %}">
+
+
+<link rel="stylesheet" href="{% static 'css/flaticon.css' %} ">
+<link rel="stylesheet" href="{% static 'css/icomoon.css' %} ">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %} ">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %} ">
+
+
+
+<link rel="stylesheet" href="{% static 'css/inline-valid/style_swal_msg.css' %}" />
+<!--===============================================================================================-->
+
+
+
+
+
+<!-- 
+Products css -->
+
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/slick-1.8.0/slick.css' %}" >
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %} ">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/cart_styles.css' %} ">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/cart_responsive.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/blog_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/blog_responsive.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/shop_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/shop_responsive.css' %}">
+
+
+
+
+
+<!-- Google Ads link below  -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script data-ad-client="ca-pub-7982644606215482" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<!--     for  django bootstrap themes
+-->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '233365684738679');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=233365684738679&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+<body>
+
+
+
+
+
+
+<!--Navigation Menu-->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+<div class="container d-flex align-items-center">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+<span class="oi oi-menu"></span> Menu
+</button>
+<!--  <p class="button-custom order-lg-last mb-0"><a href="appointment.html" class="btn btn-secondary py-2 px-3">Make An Appointment</a></p> -->
+<div class="collapse navbar-collapse" id="ftco-nav">
+<!--  -->
+.
+
+
+</ul>
+</div>
+</div>
+</nav>
+<!-- END nav -->
+
+
+
+
+
+
+{% block slider %}
+
+
+
+{% endblock %}
+
+
+
+
+{% block sickness_det %}
+
+{% endblock %}
+
+
+
+{% block content %} 
+
+
+
+{% block body_images %} 
+
+{% endblock %}  
+
+
+{% endblock %}  
+
+
+
+
+
+
+
+<div class="clear"></div>
+
+<div class="clear"></div>
+
+
+
+
+<!--footer -->
+
+  <!-- ### $App Screen Footer ### -->
+
+<!-- Start:- Footer  -->
+<footer class="footer-content p-2 " id="aBCFooter" style="margin-left:680">
+<span>
+&copy; <span >2021</span> <a href="http://instorerewards.co/" target="_blank">Instore Rewards.</a> All RightReserved. 
+</span>
+<a href="https://b.link/appsupport" target="_blank">
+<span>Customer Support</span>
+</a>
+</footer>                    <!-- End:- Footer  -->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'js/jquery.timepicker.min.js' %}"></script>
+<script src="{% static 'js/scrollax.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="{% static 'js/google-map.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+
+
+
+
+
+<script src="{% static 'js/inline-valid/main.js' %}"></script>
+<script src="{% static 'js/inline-valid/jquery.min.js' %}"></script>
+<!-- Foundation & FontAwesome -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/inline-valid/foundation.css' %}">
+<script src="{% static 'js/inline-valid/d3.v3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/inline-valid/trianglify.min.js' %}"></script>
+
+
+<script src="{% static 'js/inline-valid/jquery-1.12.2.min.js' %}"></script>
+<script src="{% static 'js/inline-valid/sweetalert2.js' %}"></script>
+
+
+<!-- Inline validation -->
+
+<script src="{% static 'js/inline-valid/tooltipster.bundle.min.js' %}"></script>
+<script src="{% static 'js/inline-valid/jquery.min.js' %}"></script>
+<script src="{% static 'js/inline-valid/jquery.validate.js' %}"></script>
+<script src="{% static 'js/inline-valid/additional-methods.js' %}"></script>
+
+
+
+
+<script type="text/javascript">
+
+$.validator.addMethod('h_telno', function (value, element) {
+value = value.replace(/\s+/g, "");
+return this.optional(element) || value.length > 9 &&
+value.match(/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/);
+}, "Please enter a valid phone number");
+
+
+$.validator.addMethod("anyDate",
+function(value, element) {
+return value.match(/^(0?[1-9]|[12][0-9]|3[0-1])[/., -](0?[1-9]|1[0-2])[/., -](19|20)?\d{2}$/);
+},
+"Valid date required!"
+);
+
+$(document).ready(function() {
+
+$("#labtest-form2").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+city : {
+required: true,
+},
+
+Area : {
+required: true,
+},
+member2: {
+required: true,
+},
+member : {
+required: true,
+},
+telno : {
+required: true,
+h_telno: true
+},
+
+username: {
+required: true,
+minlength: 3
+},
+
+address : {
+required: true,
+minlength: 3
+},
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+address: {
+required:"Address is required",
+minlength: "Address should be at least 3 characters"
+},
+telno: {
+required:"phonenumber is required",
+},
+
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});
+
+
+
+
+
+
+// validate ambulance
+//ity,Area, address, countryCode, phone, username, deliv_fee, 
+$("#post-form2").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+city : {
+required: true,
+},
+
+Area : {
+required: true,
+},
+address : {
+required: true,
+minlength: 3
+},
+phone : {
+required: true,
+h_telno: true
+},
+username: {
+required: true,
+minlength: 3
+},
+
+
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+address: {
+required:"Address is required",
+minlength: "Address should be at least 3 characters"
+},
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});  //end ambulance valid
+
+
+// validate Medicines
+//ity,Area, address, countryCode, phone, username, deliv_fee, 
+$("#med_form").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+city : {
+required: true,
+},
+
+area : {
+required: true,
+},
+address : {
+required: true,
+minlength: 3
+},
+telno : {
+required: true,
+h_telno: true
+},
+username: {
+required: true,
+minlength: 3
+},
+age:{
+required: true,
+integer: true
+},
+
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+address: {
+required:"Address is required",
+minlength: "Address should be at least 3 characters"
+},
+age: {
+required:"Age is required",
+integer: "only integers required"
+},
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});  //end Medicine valid
+
+// validate Illness
+//illness,telno, username,city, dname
+$("#illness_form").validate({
+ignore:"input[type='text']:hidden",
+rules: {
+illness : {
+required: true,
+minlength:8
+},
+telno : {
+required: true,
+h_telno: true
+},
+username: {
+required: true,
+minlength: 3
+},
+dname: {
+required: true,
+},
+
+name: {
+required: true,
+},
+fever: {
+required: true,
+},
+cough: {
+required: true,
+},
+contwith: {
+required: true,
+},
+moved: {
+required: true,
+},
+district: {
+required: true,
+},
+
+breath: {
+required: true,
+},
+
+
+
+weight: {
+required: {
+depends: function(elem) {
+return $("#age").val() > 50
+}
+},
+number: true,
+min: 0
+}
+},
+
+
+
+messages : {
+
+username: {
+required:"Username is required",
+minlength: "username should be at least 3 characters"
+},
+
+weight: {
+required: "People with age over 50 have to enter their weight",
+number: "Please enter your weight as a numerical value"
+}
+},
+
+errorPlacement: function(error, element) {
+
+if (element.attr("name") == "emp[]") {
+
+error.appendTo( element.parent("td"));
+}
+else {
+error.insertAfter(element);
+}
+}
+
+});  //end Illness  valid
+
+
+
+
+
+
+
+$(document).ready(function () { 
+$(document).ajaxStart(function () {
+$('#wait').show();
+});
+$(document).ajaxStop(function () {
+$('#wait').hide();
+});
+$(document).ajaxError(function () {
+$('#wait').hide();
+});   
+
+</script>
+
+
+
+
+<!-- 
+Products  JS -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/slick-1.8.0/slick.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+{% include "Reward/javascript.html" %}
+
+<script type="text/javascript">
+$(document).ready(function() {
+{% block jquery%}
+{% endblock %}
+
+</script>
+
+
+
+
+
+</body>
+</html>

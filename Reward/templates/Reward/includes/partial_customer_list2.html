@@ -1,0 +1,15 @@
+{% for book in books %}
+<tr class="d-fex"> 
+    <td  class="w-25">{{ book.fname }}</td>
+    <td  class="w-25">{{ book.lname }}</td>
+    <td  class="w-25">{{ book.phone}}</td>
+    <td  class="w-25">{{ book.avscore}}</td>
+
+     <td  class="w-25"><a href="{% url 'Reward:customer_details' book.id %}"> {{ book.num_free}}</a></td>
+ 
+  </tr>
+{% empty %}
+  <tr style="width:1000PX">
+    <td colspan="8" class="text-center bg-warning">No customer</td>
+  </tr>
+{% endfor %}

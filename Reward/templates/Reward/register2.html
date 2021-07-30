@@ -1,0 +1,166 @@
+{% extends "Reward/base_reward.html" %}
+{% load static %}
+
+
+{% block title %}Healthstone Medical Doctor Consultation  {% endblock %}
+{% block header_text %} <div align="left"><img src="{% static "images/fd.jpg" %}" alt="My image" style="width:1660px; height: 200px;  
+"/> </div>{% endblock %}
+
+{% block content %}
+
+     <script type="text/javascript">
+var numbers = /^[0-9]+$/;
+
+function chkblnk(eid,errid)
+{
+var x=document.getElementById(eid).value;
+if(x=="")
+{
+document.getElementById(errid).innerHTML="pls fill this field";
+}
+else
+{
+document.getElementById(errid).innerHTML="";
+}
+}
+ 
+function chkAplha(event,err)
+{
+if(!((event.which>=65 && event.which<=90) || (event.which>=97 && event.which<=122) || event.which==0 || event.which==8))
+{
+document.getElementById(err).innerHTML="invalid name format";
+return false;
+}
+}
+ 
+
+function chkPhone(event,err) {
+ 
+    if (event.which > 31 && (event.which < 48 || event.which > 57)) {
+
+        document.getElementById(err).innerHTML="invalid Phone number format";
+        return false;
+    }
+ 
+}
+
+function chkeid()
+{
+var e=document.getElementById("phone").value;
+
+if(atpos<4 || dotpos<atpos+3)
+{
+document.getElementById("error2").innerHTML="invalid email";
+}
+else
+{
+document.getElementById("error2").innerHTML="";
+}
+//alert(atpos+" "+dotpos);
+}
+
+
+
+function chkeid2()
+{
+var e=document.getElementById("e").value;
+var atpos=e.indexOf("@");
+var dotpos=e.lastIndexOf(".");
+if(atpos<4 || dotpos<atpos+3)
+{
+document.getElementById("error3").innerHTML="invalid email";
+}
+else
+{
+document.getElementById("error3").innerHTML="";
+}
+//alert(atpos+" "+dotpos);
+}
+</script>
+
+
+ <div class="container-register100">
+    <div class="wrap-login100">
+        <form class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30" action="{% url 'register2'  %}"  method="POST"  autocomplete="off">
+        {% csrf_token %}
+
+        {% if pas_exist %}
+
+        <script type="text/javascript">
+          alert("Password entered already in use")
+        </script>
+
+        {% endif %}
+
+        {% if email_exist %}
+
+        <script type="text/javascript">
+          alert("Email address entered already in use")
+        </script>
+
+        {% endif %}
+
+        
+        
+        
+        <span class="login100-form-title">
+                        Register
+                    </span>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="email" placeholder="Email" id="e" onblur="chkeid2()"  onblur="chkblnk('e','error3')">
+                        <div class="col" id="error3" style="color:red"></div>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="lnr lnr-envelope"></span>
+                        </span>
+                  </div>
+                  <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="username"  value="{{username}}" placeholder="Username" id="fn"  onkeypress="return chkAplha(event,'error')" onblur="chkblnk('fn','error')"   {% if username %} readonly=""   {% endif %} >
+                         <div class="col" id="error" style="color:red"></div>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="lnr lnr-envelope"></span>
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                        <input class="input100" type="password" name="password" placeholder="Password" id="p"  onblur="chkblnk('p','error4')">
+                         <div class="col" id="error4" style="color:red"></div>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <span class="lnr lnr-lock"></span>
+                        </span>
+                    </div>
+            
+
+                             
+
+               <input type="hidden" name="role"  id="dname" value="patient"/> 
+               <input type="hidden" name="page"  id="dname" value="0"/> 
+          
+
+<div class="row col-md2" style="margin-top: 10px;text-align: left;margin-left: 9px;width:800px;font-size:13px">
+<input type="checkbox" name="agree" style="height: 15px;width:15px;" checked>
+<label>I agree to <a target="_blank" href="/termsandconditions/">Terms of Use</a> and<br/>
+    <a target="_blank" href="#">Privacy Policy</a>
+</label>
+</div>
+          
+
+           <div class="container-login100-form-btn p-t-25">
+                     <input type="submit" id="subm"   class="login100-form-btn"  value="Register">
+                    </div>
+
+    </form>
+    </div>
+</div>
+
+    <div id="chats">
+    </div>
+
+{% endblock %}
+
+
+{% block extra_body %}
+   
+{% endblock %}

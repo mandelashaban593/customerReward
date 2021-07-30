@@ -1,0 +1,16 @@
+{% for book in books %}
+<tr style="width:1000PX"> 
+    <td>{{ book.fname }}</td>
+    <td>{{ book.lname }}</td>
+    <td>{{ book.phone}}</td>
+    <td>{{ book.score}}</td>
+    <td>{{ book.date}}</td>
+<td>{{ book.fscore}}</td>
+
+ 
+  </tr>
+{% empty %}
+  <tr style="width:1000PX">
+    <td colspan="8" class="text-center bg-warning">No customer</td>
+  </tr>
+{% endfor %}
