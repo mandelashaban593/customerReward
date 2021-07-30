@@ -2,13 +2,16 @@ Roboto webfont source: https://www.google.com/fonts/specimen/Roboto
 Weights used in this project: Light (300), Regular (400), Bold (700)
 
 
+
 https://instorerewards.co/app/
 User: FiverTest
 Password: \0{8UD6bFtj5sd'TmLIZ
 
 HOW TO RUN  APPLICATION LOCALLY
 
+
 From your project root, you can download the project:
+
 -Make sure you have python 3 and above installed on your machine
 -Then cd customerReward
 -Install virtual environment using python3 -m venv reward_env
